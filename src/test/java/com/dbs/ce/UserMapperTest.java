@@ -13,6 +13,6 @@ public class UserMapperTest {
 
     @Test
     void findAll() {
-
+        System.out.println(userMapper.findAll());
     }
 }
