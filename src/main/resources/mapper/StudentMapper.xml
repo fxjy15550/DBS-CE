@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbs.ce.mapper.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.dbs.ce.entity.Student">
+        <result column="sno" jdbcType="VARCHAR" property="sno"/>
+        <result column="sname" jdbcType="VARCHAR" property="sname"/>
+        <result column="ssex" jdbcType="VARCHAR" property="ssex"/>
+        <result column="sage" jdbcType="INTEGER" property="sage"/>
+        <result column="sdept" jdbcType="VARCHAR" property="sname"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+
+    <select id="selectBySno" resultType="com.dbs.ce.entity.Student">
+        select * from student where sno = #{sno}
+    </select>
+
+    <select id="selectByStudentId" resultType="com.dbs.ce.entity.Student">
+        select * from student where sno = #{sno}
+    </select>
+
+    <select id="checkStudentIdExist" resultType="java.lang.Boolean">
+        select count(*) from student where sno = #{sno}
+    </select>
+
+    <select id="checkNicknameExist" resultType="java.lang.Boolean">
+        select count(*) from student where nickname = #{nickname}
+    </select>
+
+    <select id="checkPasswordCorrect" resultType="java.lang.Boolean">
+        select count(*) from student where sno = #{sno} and password = #{password}
+    </select>
+
+    <insert id="insert" parameterType="Student">
+        insert into student(sno, sname, ssex, sage, sdept, nickname, password) values
+        (#{sno}, #{sname}, #{ssex}, #{sage}, #{sdept}, #{nickname}, #{password})
+    </insert>
+
+    <update id="updatePwdByStudentId">
+        update  student set password = #{password} where sno = #{sno}
+    </update>
+</mapper>
