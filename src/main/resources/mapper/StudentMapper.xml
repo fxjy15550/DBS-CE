@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dbs.ce.mapper.StudentMapper">
 
-    <resultMap id="BaseResultMap" type="com.dbs.ce.entity.Student">
+    <resultMap id="resultMap" type="com.dbs.ce.entity.Student">
         <result column="sno" jdbcType="VARCHAR" property="sno"/>
         <result column="sname" jdbcType="VARCHAR" property="sname"/>
         <result column="ssex" jdbcType="VARCHAR" property="ssex"/>

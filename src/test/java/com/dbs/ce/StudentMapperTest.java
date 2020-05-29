@@ -18,22 +18,22 @@ public class StudentMapperTest {
     }
 
     @Test
-    void checkSnoExistTest(){
+    void checkSnoExistTest() {
         System.out.println(studentMapper.checkSnoExist("201215121"));
     }
 
     @Test
-    void checkNicknameExistTest(){
+    void checkNicknameExistTest() {
         System.out.println(studentMapper.checkNicknameExist("张三"));
     }
 
     @Test
-    void checkPasswordCorrectTest(){
-        System.out.println(studentMapper.checkPasswordCorrect("201215121","123456"));
+    void checkPasswordCorrectTest() {
+        System.out.println(studentMapper.checkPasswordCorrect("201215121", "123456"));
     }
 
     @Test
-    void insertTest(){
+    void insertTest() {
         Student student = new Student();
         student.setSno("17020031060");
         student.setSname("根本");
@@ -58,7 +58,7 @@ public class StudentMapperTest {
     }
 
     @Test
-    void updatePwdBySnoTest(){
+    void updatePwdBySnoTest() {
         try {//true
             System.out.println(studentMapper.updatePwdBySno("17020031060", "1243"));
         } catch (Exception e) {

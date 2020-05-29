@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbs.ce.mapper.CourseMapper">
+
+    <resultMap id="resultMap" type="com.dbs.ce.entity.Course">
+        <result column="cno" jdbcType="VARCHAR" property="cno"/>
+        <result column="cname" jdbcType="VARCHAR" property="cname"/>
+        <result column="cdept" jdbcType="VARCHAR" property="cdept"/>
+        <result column="ccredit" jdbcType="INTEGER" property="ccredit"/>
+        <result column="cinfo" jdbcType="VARCHAR" property="cinfo"/>
+        <result column="cteacher" jdbcType="VARCHAR" property="cteacher"/>
+        <result column="cdate" jdbcType="VARCHAR" property="cdate"/>
+    </resultMap>
+
+    <select id="selectByCno" parameterType="java.lang.String" resultMap="resultMap">
+        select * from course where cno = #{cno}
+    </select>
+
+    <select id="selectByCourseDept" parameterType="java.lang.String" resultMap="resultMap">
+        select * from course where cdept = #{cdept}
+    </select>
+
+    <select id="selectAll" resultMap="resultMap">
+        select * from course
+    </select>
+
+    <select id="selectByKeyWords" parameterType="java.lang.String" resultMap="resultMap">
+        select * from course where cname like CONCAT('%', #{keywords}, '%')
+    </select>
+</mapper>
