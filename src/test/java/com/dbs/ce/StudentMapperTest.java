@@ -19,7 +19,7 @@ public class StudentMapperTest {
 
     @Test
     void checkSnoExistTest(){
-        System.out.println(studentMapper.checkSnoExist("20121521"));
+        System.out.println(studentMapper.checkSnoExist("201215121"));
     }
 
     @Test
