@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "信息更新DTO")
 public class UpdateDTO {
-    @ApiModelProperty(value = "用户的登录ID", required = true)
+    @ApiModelProperty(value = "用户ID", required = true)
     private String userId;
     @ApiModelProperty(value = "验证码", required = true)
     private String verificationCode;

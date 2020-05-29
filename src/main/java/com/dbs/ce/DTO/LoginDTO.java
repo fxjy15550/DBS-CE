@@ -5,9 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "登录信息DTO")
 public class LoginDTO {
-    @ApiModelProperty(value = "用户ID",required = true)
+    @ApiModelProperty(value = "用户ID(学号)", required = true)
     private String userId;
-    @ApiModelProperty(value = "用户密码",required = true)
+    @ApiModelProperty(value = "用户密码", required = true)
     private String password;
 
     @Override

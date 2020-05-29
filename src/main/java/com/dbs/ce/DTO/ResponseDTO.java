@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "请求相应DTO")
+@ApiModel(description = "请求DTO")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDTO {
     //请求成功
