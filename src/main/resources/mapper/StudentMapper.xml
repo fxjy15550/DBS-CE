@@ -16,11 +16,11 @@
         select * from student where sno = #{sno}
     </select>
 
-    <select id="selectByStudentId" resultType="com.dbs.ce.entity.Student">
-        select * from student where sno = #{sno}
+    <select id="selectByStudentName" resultType="com.dbs.ce.entity.Student">
+        select * from student where sname = #{sname}
     </select>
 
-    <select id="checkStudentIdExist" resultType="java.lang.Boolean">
+    <select id="checkSnoExist" resultType="java.lang.Boolean">
         select count(*) from student where sno = #{sno}
     </select>
 
@@ -37,7 +37,7 @@
         (#{sno}, #{sname}, #{ssex}, #{sage}, #{sdept}, #{nickname}, #{password})
     </insert>
 
-    <update id="updatePwdByStudentId">
+    <update id="updatePwdBySno">
         update  student set password = #{password} where sno = #{sno}
     </update>
 </mapper>

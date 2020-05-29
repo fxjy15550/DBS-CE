@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentMapper {
     Student selectBySno(String sno);
+    Student selectByStudentName(String sname);
     boolean checkSnoExist(String sno);
     boolean checkNicknameExist(String nickname);
     boolean checkPasswordCorrect(String sno, String password);
