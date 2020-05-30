@@ -14,7 +14,7 @@ public class CEApplication extends SpringBootServletInitializer {
         SpringApplication.run(CEApplication.class, args);
     }
 
-    //为了打包springboot项目
+    //打包springboot项目
     @Override
     protected SpringApplicationBuilder configure(
             SpringApplicationBuilder builder) {
