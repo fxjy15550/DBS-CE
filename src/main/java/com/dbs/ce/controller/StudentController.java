@@ -26,7 +26,7 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    @ApiOperation(value = "学生注册", notes = "学生注册 Rest api")
+    @ApiOperation(value = "学生注册", notes = "学生输入信息注册")
     @PostMapping(value = "/register", produces = "application/json")
     public ResponseDTO studentRegister(@RequestBody Student student) {
         return studentService.register(student);
