@@ -15,9 +15,9 @@ public class StudentService {
     /**
      * @Author Tan Mingyao
      * @Description 登录服务
-     * @Date 17:36 2020/5/29
+     * @LastModified 17:36 2020/6/1
      * @Param [sno, password]
-     * @return com.dbs.ce.DTO.ResponseDTO
+     * @Return com.dbs.ce.DTO.ResponseDTO
      **/
     public ResponseDTO login(String sno, String password) {
         Student student = studentMapper.selectBySno(sno);
@@ -31,21 +31,21 @@ public class StudentService {
         }
     }
 
-   /**
-    * @Author Tan Mingyao
-    * @Description 注册服务
-    * @Date 17:35 2020/5/29
-    * @Param [student]
-    * @return com.dbs.ce.DTO.ResponseDTO
-    **/
+    /**
+     * @Author Tan Mingyao
+     * @Description 注册服务
+     * @LastModified 17:36 2020/6/1
+     * @Param [student]
+     * @Return com.dbs.ce.DTO.ResponseDTO
+     **/
     public ResponseDTO register(Student student) {
-        //确保student不为null
+        // student不为null
         if (student == null)
             return new ResponseDTO(ResponseDTO.NotFound, "用户信息为空");
-            //确保id不重复
+            // id不重复
         else if (studentMapper.checkSnoExist(student.getSno()))
             return new ResponseDTO(ResponseDTO.Forbidden, "该学号已注册");
-            //确保nickname不重复
+            // nickname不重复
         else if (studentMapper.checkNicknameExist(student.getNickname()))
             return new ResponseDTO(ResponseDTO.Forbidden, "该昵称已被使用");
         else {
@@ -65,18 +65,18 @@ public class StudentService {
     /**
      * @Author Tan Mingyao
      * @Description 修改密码服务
-     * @Date 17:41 2020/5/29
+     * @LastModified 17:36 2020/6/1
      * @Param [sno, password, newPassword]
-     * @return com.dbs.ce.DTO.ResponseDTO
+     * @Return com.dbs.ce.DTO.ResponseDTO
      **/
     public ResponseDTO updatePassword(String sno, String password, String newPassword) {
         if (StringCheckUtil.checkIsEmpty(sno))
             return new ResponseDTO(ResponseDTO.NotFound, "用户ID为空");
         else if (studentMapper.checkPasswordCorrect(sno, password)) {
-            if(!StringCheckUtil.checkPwdStr(newPassword))
+            if (!StringCheckUtil.checkPwdStr(newPassword))
                 return new ResponseDTO(ResponseDTO.Forbidden, "新密码不合法");
             try {
-                if(studentMapper.updatePwdBySno(sno, newPassword))
+                if (studentMapper.updatePwdBySno(sno, newPassword))
                     return new ResponseDTO(ResponseDTO.OK, "修改密码成功");
                 else
                     return new ResponseDTO(ResponseDTO.Forbidden, "未知错误");
@@ -87,5 +87,4 @@ public class StudentService {
             return new ResponseDTO(ResponseDTO.Forbidden, "用户ID或密码错误");
         }
     }
-
 }

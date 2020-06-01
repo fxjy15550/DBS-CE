@@ -14,6 +14,7 @@ import com.dbs.ce.entity.Student;
 import com.dbs.ce.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,7 @@ public class StudentController {
     @ApiOperation(value = "修改密码", notes = "根据验证码修改密码（TODO）")
     @PostMapping(value = "/password", produces = "application/json")
     public ResponseDTO updatePassword(@RequestBody UpdateDTO updateDTO) {
-            return studentService.updatePassword(updateDTO.getUserId(),
-                    updateDTO.getPassword(), updateDTO.getUpdateInfo());
+        return studentService.updatePassword(updateDTO.getUserId(),
+                updateDTO.getPassword(), updateDTO.getUpdateInfo());
     }
 }

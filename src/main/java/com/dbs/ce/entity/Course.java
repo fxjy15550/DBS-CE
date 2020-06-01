@@ -1,14 +1,25 @@
 package com.dbs.ce.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
+@ApiModel(value = "课程信息")
 public class Course implements Serializable {
+    @ApiModelProperty(value = "课程号",required = true)
     private String cno;
+    @ApiModelProperty(value = "课程名",required = true)
     private String cname;
+    @ApiModelProperty(value = "系名",required = true)
     private String cdept;
+    @ApiModelProperty(value = "学分",required = true)
     private int ccredit;
+    @ApiModelProperty(value = "课程信息",required = true)
     private String cinfo;
+    @ApiModelProperty(value = "授课老师",required = true)
     private String cteacher;
+    @ApiModelProperty(value = "上课时间",required = true)
     private String cdate;
 
     public String getCno() {

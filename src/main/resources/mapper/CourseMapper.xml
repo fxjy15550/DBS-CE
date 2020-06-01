@@ -16,7 +16,7 @@
         select * from course where cno = #{cno}
     </select>
 
-    <select id="selectByCourseDept" parameterType="java.lang.String" resultMap="resultMap">
+    <select id="selectCourseByDept" parameterType="java.lang.String" resultMap="resultMap">
         select * from course where cdept = #{cdept}
     </select>
 

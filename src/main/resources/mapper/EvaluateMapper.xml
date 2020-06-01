@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbs.ce.mapper.EvaluateMapper">
+
+    <resultMap id="resultMap" type="com.dbs.ce.entity.Evaluate">
+        <result column="sno" jdbcType="VARCHAR" property="sno"/>
+        <result column="cno" jdbcType="VARCHAR" property="cno"/>
+        <result column="edate" jdbcType="TIMESTAMP" property="edate"/>
+        <result column="econtent" jdbcType="VARCHAR" property="econtent"/>
+    </resultMap>
+
+    <select id="selectEvaluateByCno" parameterType="java.lang.String" resultMap="resultMap">
+        select * from evaluate where cno = #{cno}
+    </select>
+
+    <select id="checkIfEvaluated" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select COUNT(*) from evaluate where cno = #{cno} and sno = #{sno}
+    </select>
+
+    <insert id="insertEvaluate">
+        insert into evaluate (sno, cno, edate, econtent) values (#{sno}, #{cno}, #{edate}, #{econtent})
+    </insert>
+
+    <update id="updateEvaluate">
+        update evaluate set edate = #{edate}, econtent = #{econtent} where sno = #{sno} and cno = #{cno}
+    </update>
+
+    <delete id="deleteEvaluateBySC" parameterType="java.lang.String">
+        delete from evaluate where sno = #{sno} and cno = #{cno}
+    </delete>
+</mapper>
